@@ -16,6 +16,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void generateSequence(int length);
+    void displaySequence();
+    void onButtonPressed(int color);
+
+private slots:
+    void startButtonClicked();
 
 private:
     Ui::MainWindow *ui;
