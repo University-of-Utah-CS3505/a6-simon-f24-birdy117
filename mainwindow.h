@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "QMediaPlayer"
+#include "QAudioOutput"
+#include <QSoundEffect>
 
 /*
  * Aaron Perez CS3505
@@ -50,6 +53,8 @@ public:
     void enableButtons();
     void disableButtons();
 
+    void resetProgressBar(int MaxValue);
+
 private slots:
     ///
     /// \brief startButtonClicked - Slot to handle when the start button is clicked.
@@ -68,5 +73,11 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QMediaPlayer *mediaPlayer;
+    QAudioOutput *output;
+    QSoundEffect *redBeep;
+    QSoundEffect *blueBeep;
+    QSoundEffect *roundWin;
+    QSoundEffect *gameOver;
 };
 #endif // MAINWINDOW_H

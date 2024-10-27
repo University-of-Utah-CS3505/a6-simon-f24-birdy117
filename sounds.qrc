@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sounds/blueBeep.wav</file>
+        <file>sounds/game_over.wav</file>
+        <file>sounds/redBeep.wav</file>
+        <file>sounds/roundWin.wav</file>
+    </qresource>
+</RCC>
