@@ -89,7 +89,7 @@ void MainWindow::displaySequence() {
     //Show the sequence
     for (int i = 0; i < sequence.size(); ++i) {
         //As the sequence grows larger, the computer will display the sequence faster
-        QTimer::singleShot(1000+(1000*i)-(40*sequence.size()), this, [this, i]() {
+        QTimer::singleShot((1000+(1000*i)-(50*i*sequence.size())), this, [this, i]() {
             ui->winLabel->hide();
             if (sequence[i] == 0) {
                 redButtonFlash();
@@ -100,7 +100,7 @@ void MainWindow::displaySequence() {
     }
 
     // After the sequence is displayed, enable the player's turn
-    QTimer::singleShot(1000+1000*sequence.size(), this, [this]() {
+    QTimer::singleShot((1000+1000*sequence.size())-(50*sequence.size()*sequence.size()), this, [this]() {
         playerTurn = true;
         enableButtons();
     });
