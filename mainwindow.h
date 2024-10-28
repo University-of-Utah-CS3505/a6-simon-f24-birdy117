@@ -9,7 +9,8 @@
 /*
  * Aaron Perez CS3505
  * A6: Qt Simon Game
- *
+ * Github User: birdy117
+ * https://github.com/University-of-Utah-CS3505/a6-simon-f24-birdy117
  * This header file lays out the slots and functions to be implemented in the main .cpp file.
  * This file functions as the controller to send signals to the ui
  */
@@ -28,7 +29,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    ///
+    /// \brief startGame - starts the game.
+    ///
     void startGame();
+
+    ///
+    /// \brief endGame - ends the simon game by disabling buttons and displaying game over
+    ///
     void endGame();
 
     ///
@@ -48,11 +56,30 @@ public:
     ///
     void onButtonPressed(int color);
 
+    ///
+    /// \brief redButtonFlash - Flashes the red button
+    ///
     void redButtonFlash();
+
+    ///
+    /// \brief blueButtonFlash - Flashes the blue button
+    ///
     void blueButtonFlash();
+
+    ///
+    /// \brief enableButtons - enables the colored buttons to be pressed
+    ///
     void enableButtons();
+
+    ///
+    /// \brief disableButtons - disables the colored buttons so they cannot be pressed
+    ///
     void disableButtons();
 
+    ///
+    /// \brief resetProgressBar - resets the progress bar to zero and sets a new maximum
+    /// \param MaxValue - The new max value to set the progress bar to.
+    ///
     void resetProgressBar(int MaxValue);
 
 private slots:
@@ -73,11 +100,25 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QMediaPlayer *mediaPlayer;
-    QAudioOutput *output;
+
+    ///
+    /// \brief redBeep - Pointer to the red button beeping sfx
+    ///
     QSoundEffect *redBeep;
+
+    ///
+    /// \brief blueBeep - Pointer to the blue button beeping sfx
+    ///
     QSoundEffect *blueBeep;
+
+    ///
+    /// \brief roundWin - Pointer to the round win sfx
+    ///
     QSoundEffect *roundWin;
+
+    ///
+    /// \brief gameOver - Pointer to the game over sfx
+    ///
     QSoundEffect *gameOver;
 };
 #endif // MAINWINDOW_H

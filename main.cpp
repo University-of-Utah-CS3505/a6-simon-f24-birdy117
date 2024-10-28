@@ -5,8 +5,9 @@
 /*
  * Aaron Perez CS3505
  * A6: Qt Simon Game
- *
- * This header file lays out the slots and functions to be implemented in the main .cpp file.
+ * Github User: birdy117
+ * https://github.com/University-of-Utah-CS3505/a6-simon-f24-birdy117
+ * This file is the main function that runs the MainWindow.cpp file
  */
 
 int main(int argc, char *argv[])
