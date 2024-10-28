@@ -32,8 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->redButton, &QPushButton::clicked, this, &MainWindow::redButtonClicked); // Connect signal to slot
     connect(ui->blueButton, &QPushButton::clicked, this, &MainWindow::blueButtonClicked); // Connect signal to slot
 
-    ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,50,50);} QPushButton:pressed {background-color: rgb(235,120,120);}"));
-    ui->blueButton->setStyleSheet(QString("QPushButton {background-color: rgb(50,50,100);} QPushButton:pressed {background-color: rgb(120,120,235);}"));
+    ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,50,50); border: 2px solid black;} QPushButton:pressed {background-color: rgb(235,120,120); border: 2px solid black;} QPushButton:hover {background-color: rgb(200,75,75); border: 2px solid black;}"));
+    ui->blueButton->setStyleSheet(QString("QPushButton {background-color: rgb(50,50,100); border: 2px solid black;} QPushButton:pressed {background-color: rgb(120,120,235); border: 2px solid black;} QPushButton::hover {background-color: rgb(100,100,200); border: 2px solid black;}"));
     ui->gameOverLabel->hide();
     ui->winLabel->hide();
 
@@ -139,18 +139,18 @@ void MainWindow::blueButtonClicked()
 }
 
 void MainWindow::redButtonFlash(){
-    ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(235,120,120);}"));
+    ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(235,120,120); border: 2px solid black;} QPushButton:pressed {background-color: rgb(235,120,120); border: 2px solid black;} QPushButton::hover {background-color: rgb(200,100,100); border: 2px solid black;}"));
     redBeep->play();
     QTimer::singleShot(520-(sequence.size()*20), this, [this](){
-        ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,50,50);}"));
+        ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,50,50); border: 2px solid black;} QPushButton:pressed {background-color: rgb(235,120,120); border: 2px solid black;} QPushButton::hover {background-color: rgb(200,100,100); border: 2px solid black;}"));
     });
 }
 
 void MainWindow::blueButtonFlash(){
-    ui->blueButton->setStyleSheet(QString("QPushButton {background-color: rgb(120,120,235);}"));
+    ui->blueButton->setStyleSheet(QString("QPushButton {background-color: rgb(120,120,235); border: 2px solid black;} QPushButton:pressed {background-color: rgb(120,120,235); border: 2px solid black;} QPushButton::hover {background-color: rgb(100,100,200); border: 2px solid black;}"));
     blueBeep->play();
     QTimer::singleShot(520-(sequence.size()*20), this, [this](){
-        ui->blueButton->setStyleSheet("QPushButton {background-color: rgb(50,50,100);}");
+        ui->blueButton->setStyleSheet("QPushButton {background-color: rgb(50,50,100); border: 2px solid black;} QPushButton:pressed {background-color: rgb(120,120,235); border: 2px solid black;} QPushButton::hover {background-color: rgb(100,100,200); border: 2px solid black;}");
     });
 }
 
